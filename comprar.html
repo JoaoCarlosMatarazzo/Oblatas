@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas com Oblatas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo Oblatas">
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html#inicio"><i class="fas fa-home"></i>Inicio</a></li>
+                    <li><a href="eventos.html"><i class="fas fa-cookie"></i>Eventos</a></li>
+                    <li><a href="sobre_nos.html"><i class="fas fa-info-circle"></i>Sobre Nós</a></li>
+                    <li><a href="receitas.html"><i class="fas fa-utensils"></i>Receitas</a></li>
+                    <li><a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <button class="search-button" id="searchBtn"><i class="fas fa-search"></i></button>
+                <div class="search-container" id="searchContainer" style="display: none;">
+                    <input type="text" placeholder="Pesquisar produto..." id="searchInput">
+                    <button class="search-submit">Buscar</button>
+                </div>
+                <a href="cadastro.html" class="account-button"><i class="fas fa-user"></i> Criar Conta</a>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+            <div class="cart-menu" id="cartMenu">
+                <div class="cart-header">
+                    <h3>Seu Carrinho</h3>
+                    <button id="closeCart">X</button>
+                </div>
+                <div class="cart-items" id="cartItems">
+                    <!-- Em desenvolvimento -->
+                </div>
+                <div class="cart-footer">
+                    <button class="checkout-button">Finalizar Compra</button>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="recipes">
+        <div class="container">
+            <h2>Nossos Produtos</h2>
+            <div class="recipe-list">
+                <div class="recipe-item">
+                    <a href="receita-detalhe.html">
+                        <img src="img/receita1.webp" alt="Bolo de Oblatas">
+                        <h3>Bolo de Oblatas</h3>
+                        <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="receita-detalhe2.html">
+                        <img src="img/receita2.webp" alt="Torta de Chocolate com Oblatas">
+                        <h3>Torta de Chocolate com Oblatas</h3>
+                        <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="receita-detalhe2.html">
+                        <img src="img/cookie6.jpg" alt="Torta de Chocolate com Oblatas">
+                        <h3>Torta de Chocolate com Oblatas</h3>
+                        <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="receita-detalhe2.html">
+                        <img src="img/cookie5.jpg" alt="Torta de Chocolate com Oblatas">
+                        <h3>Torta de Chocolate com Oblatas</h3>
+                        <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="receita-detalhe2.html">
+                        <img src="img/cookie2.jpg" alt="Torta de Chocolate com Oblatas">
+                        <h3>Torta de Chocolate com Oblatas</h3>
+                        <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="receita-detalhe2.html">
+                        <img src="img/cookie4.jpg" alt="Torta de Chocolate com Oblatas">
+                        <h3>Torta de Chocolate com Oblatas</h3>
+                        <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Oblatas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        // Abrir o menu lateral ao clicar no ícone do carrinho
+        cartIcon.addEventListener('click', () => {
+            cartMenu.classList.toggle('open');
+        });
+
+        // Fechar o menu lateral ao clicar no botão 'X'
+        closeCart.addEventListener('click', () => {
+            cartMenu.classList.remove('open');
+        });
+
+        // Adicionar produto ao carrinho (simulação)
+        function addToCart(product) {
+            cartItems.push(product);
+            updateCart();
+        }
+
+        // Atualizar o ícone do carrinho e o conteúdo do menu lateral
+        function updateCart() {
+            cartCount.textContent = cartItems.length;
+
+            const cartItemsContainer = document.getElementById('cartItems');
+            cartItemsContainer.innerHTML = '';
+
+            cartItems.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <p>${item.name}</p>
+                    <button onclick="removeFromCart(${index})">Remover</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+        }
+
+        // Remover item do carrinho
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            updateCart();
+        }
+
+        // Exemplo de uso: adicionar produto ao clicar em um botão
+        document.querySelectorAll('.add-to-cart-button').forEach((button, index) => {
+            button.addEventListener('click', () => {
+                const product = {
+                    name: document.querySelectorAll('.product-item h3')[index].textContent
+                };
+                addToCart(product);
+            });
+        });
+        document.querySelector('.checkout-button').addEventListener('click', () => {
+            alert('Compra finalizada! Obrigado por comprar conosco.');
+        });
+        
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas com Oblatas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html"><img src="img/logo.png" alt="Logo Oblatas"></a>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html#inicio"><i class="fas fa-home"></i>Inicio</a></li>
+                    <li><a href="eventos.html"><i class="fas fa-cookie"></i>Eventos</a></li>
+                    <li><a href="comprar.html"><i class="fas fa-shopping-bag"></i>Comprar</a></li>
+                    <li><a href="sobre_nos.html"><i class="fas fa-info-circle"></i>Sobre Nós</a></li>
+                    <li><a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <button class="search-button" id="searchBtn"><i class="fas fa-search"></i></button>
+                <div class="search-container" id="searchContainer" style="display: none;">
+                    <input type="text" placeholder="Pesquisar produto..." id="searchInput">
+                    <button class="search-submit">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="recipes">
+        <div class="container">
+            <h2>Nossas Receitas</h2>
+            <div class="recipe-list">
+                <div class="recipe-item">
+                    <a href="receita-detalhe.html">
+                        <img src="img/receita1.webp" alt="Bolo de Oblatas">
+                        <h3>Bolo de Oblatas</h3>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="receita-detalhe2.html">
+                        <img src="img/receita2.webp" alt="Torta de Chocolate com Oblatas">
+                        <h3>Torta de Chocolate com Oblatas</h3>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="receita-detalhe2.html">
+                        <img src="img/cookie6.jpg" alt="Torta de Chocolate com Oblatas">
+                        <h3>Torta de Chocolate com Oblatas</h3>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="receita-detalhe2.html">
+                        <img src="img/cookie5.jpg" alt="Torta de Chocolate com Oblatas">
+                        <h3>Torta de Chocolate com Oblatas</h3>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="receita-detalhe2.html">
+                        <img src="img/cookie2.jpg" alt="Torta de Chocolate com Oblatas">
+                        <h3>Torta de Chocolate com Oblatas</h3>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="receita-detalhe2.html">
+                        <img src="img/cookie4.jpg" alt="Torta de Chocolate com Oblatas">
+                        <h3>Torta de Chocolate com Oblatas</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Oblatas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            const searchContainer = document.getElementById('searchContainer');
+            if (searchContainer.style.display === 'none' || searchContainer.style.display === '') {
+                searchContainer.style.display = 'flex';
+            } else {
+                searchContainer.style.display = 'none';
+            }
+        });
+        document.querySelector('.search-submit').addEventListener('click', function() {
+            const searchInput = document.getElementById('searchInput').value;
+            alert(`Buscando por: ${searchInput}`);  
+        });
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        document.getElementById('linkProdutos').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão do link
+            document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>

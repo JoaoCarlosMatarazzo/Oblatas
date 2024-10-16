@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oblatas - Saborosos Biscoitos de Chocolate</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo Oblatas">
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="comprar.html"><i class="fas fa-shopping-bag"></i>Comprar</a></li>
+                    <li><a href="eventos.html"><i class="fas fa-cookie"></i>Eventos</a></li>
+                    <li><a href="receitas.html"><i class="fas fa-utensils"></i>Receitas</a></li>
+                    <li><a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a></li>
+                    <li><a href="sobre_nos.html"><i class="fas fa-book"></i>Sobre Nós</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <button class="search-button" id="searchBtn"><i class="fas fa-search"></i></button>
+                <div class="search-container" id="searchContainer" style="display: none;">
+                    <input type="text" placeholder="Pesquisar produto..." id="searchInput">
+                    <button class="search-submit">Buscar</button>
+                </div>
+                <a href="cadastro.html" class="account-button"><i class="fas fa-user"></i> Criar Conta</a>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+            <div class="cart-menu" id="cartMenu">
+                <div class="cart-header">
+                    <h3>Seu Carrinho</h3>
+                    <button id="closeCart">X</button>
+                </div>
+                <div class="cart-items" id="cartItems">
+                    <!-- Conteúdo dinâmico aqui -->
+                </div>
+                <div class="cart-footer">
+                    <button class="checkout-button">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="img/hero-bg1.jpg" alt="Imagem 1" class="active">
+                    <img src="img/hero-bg2.webp" alt="Imagem 2">
+                    <img src="img/carrossel3.jpg" alt="Imagem 3">
+                </div>
+                <!-- Texto fixo sobre o carrossel -->
+                <div class="carousel-text">
+                    <h1 class="titulo">Bem-vindo a Oblatas!</h1>
+                    <p class="outlined-text">Delicie-se com nossos saborosos biscoitos de chocolate.</p>
+                    <button class="cta-button">Explore Nossos Produtos</button>
+                </div>
+            </div>
+            <div class="carousel-dots">
+                <!-- As bolinhas serão geradas dinamicamente aqui -->
+            </div>
+            
+        </div>
+    </section>
+    
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Nossos Produtos</h2>
+            <div class="product-list">
+                <div class="product-item hover-effect">
+                    <img src="img/cookie1.jpg" alt="Oblatas Clássico">
+                    <h3>Oblatas Clássico</h3>
+                </div>
+                <div class="product-item hover-effect">
+                    <img src="img/cookie2.jpg" alt="Oblatas Chocolate Amargo">
+                    <h3>Oblatas Chocolate Amargo</h3>
+                </div>
+                <div class="product-item hover-effect">
+                    <img src="img/cookie3.jpg" alt="Oblatas Chocolate Amargo">
+                    <h3>Oblatas Chocolate Amargo</h3>
+                </div>
+                <div class="product-item hover-effect">
+                    <img src="img/cookie4.jpg" alt="Oblatas Chocolate Amargo">
+                    <h3>Oblatas Chocolate Amargo</h3>
+                </div>
+                <div class="product-item hover-effect">
+                    <img src="img/cookie5.jpg" alt="Oblatas Chocolate Amargo">
+                    <h3>Oblatas Chocolate Amargo</h3>
+                </div>
+                <div class="product-item hover-effect">
+                    <img src="img/cookie6.jpg" alt="Oblatas Chocolate Amargo">
+                    <h3>Oblatas Chocolate Amargo</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato" class="footer">
+        <div class="container">
+            <p>&copy; 2024 Oblatas. Todos os direitos reservados.</p>
+            <div class="contact-info"> 
+                <p>Email: <a href="mailto:contato@oblatas.com">contato@oblatas.com</a> </p>
+                <p>Telefone: (11) 98765-4321 </p>
+                <p>Instagram: <a href="https://instagram.com/oblatas" target="_blank">@oblatas</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/company/oblatas" target="_blank">linkedin.com/company/oblatas</a></p>
+                <p>Telegram: <a href="https://t.me/oblatas" target="_blank">@oblatas</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            const searchContainer = document.getElementById('searchContainer');
+            if (searchContainer.style.display === 'none' || searchContainer.style.display === '') {
+                searchContainer.style.display = 'flex';
+            } else {
+                searchContainer.style.display = 'none';
+            }
+        });
+        document.querySelector('.search-submit').addEventListener('click', function() {
+            const searchInput = document.getElementById('searchInput').value;
+            alert(`Buscando por: ${searchInput}`);  
+        });
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Carrossel de Imagens
+        let currentImageIndex = 0; // Índice da imagem atual
+        const images = document.querySelectorAll('.carousel-images img');
+        const totalImages = images.length;
+        const dotsContainer = document.querySelector('.carousel-dots');
+
+        // Função para criar as bolinhas baseadas na quantidade de imagens
+        function createDots() {
+            for (let i = 0; i < totalImages; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.addEventListener('click', () => {
+                    currentImageIndex = i; // Muda para a imagem correspondente
+                    updateCarousel();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // Função para atualizar a imagem e as bolinhas
+        function updateCarousel() {
+            // Atualizar as imagens
+            images.forEach((img, index) => {
+                img.classList.remove('active'); // Remove a classe ativa de todas as imagens
+            });
+            images[currentImageIndex].classList.add('active'); // Adiciona a classe ativa à imagem atual
+
+            // Atualizar as bolinhas
+            const dots = dotsContainer.querySelectorAll('.dot');
+            dots.forEach(dot => dot.classList.remove('active')); // Remove a classe ativa de todas as bolinhas
+            dots[currentImageIndex].classList.add('active'); // Adiciona a classe ativa à bolinha atual
+        }
+
+        // Função para mostrar a próxima imagem
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % totalImages; // Avança para a próxima imagem
+            updateCarousel(); // Atualiza o carrossel
+        }
+
+        // Criar as bolinhas e configurar a exibição inicial
+        createDots();
+        updateCarousel(); // Atualiza a exibição inicial
+
+        // Mudar a imagem e as bolinhas a cada 3 segundos
+        setInterval(showNextImage, 3000);
+
+
+
+        let cartItems = [];
+        const cartIcon = document.getElementById('cartIcon');
+        const cartMenu = document.getElementById('cartMenu');
+        const cartCount = document.getElementById('cartCount');
+        const closeCart = document.getElementById('closeCart');
+
+        // Abrir o menu lateral ao clicar no ícone do carrinho
+        cartIcon.addEventListener('click', () => {
+            cartMenu.classList.toggle('open');
+            updateCart();
+        });
+
+        // Fechar o menu lateral ao clicar no botão 'X'
+        closeCart.addEventListener('click', () => {
+            cartMenu.classList.remove('open');
+        });
+
+        // Adicionar produto ao carrinho (simulação)
+        function addToCart(product) {
+            cartItems.push(product);
+            updateCart();
+        }
+
+        // Atualizar o ícone do carrinho e o conteúdo do menu lateral
+        function updateCart() {
+            cartCount.textContent = cartItems.length;
+
+            const cartItemsContainer = document.getElementById('cartItems');
+            cartItemsContainer.innerHTML = '';
+
+            if (cartItems.length === 0) {
+                const emptyMessage = document.createElement('div');
+                emptyMessage.classList.add('empty-cart-message');
+                emptyMessage.textContent = "Vamos tornar o seu dia mais feliz, vamos encher o seu carrinho!";
+                cartItemsContainer.appendChild(emptyMessage);
+            } else {
+                cartItems.forEach((item, index) => {
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <p>${item.name}</p>
+                        <button onclick="removeFromCart(${index})">Remover</button>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+            }
+        }
+
+        // Remover item do carrinho
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            updateCart();
+        }
+
+        // Exemplo de uso: adicionar produto ao clicar em um botão
+        document.querySelectorAll('.product-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const product = {
+                    name: item.querySelector('h3').textContent
+                };
+                addToCart(product);
+            });
+        });
+    </script>
+
+</body>
+</html>
